@@ -8,7 +8,7 @@ export type AppItem = {
   category: string;
   roles: Role[];
   icon: string;
-  color: string;
+  iconBg: string; // Ubah dari 'color' ke 'iconBg'
 };
 
 export const APPS: AppItem[] = [
@@ -20,7 +20,7 @@ export const APPS: AppItem[] = [
     category: "PdP",
     roles: ["guru", "pentadbir"],
     icon: "📘",
-    color: "bg-blue-50 border-blue-200 hover:border-blue-400",
+    iconBg: "bg-blue-50 text-blue-600",
   },
   {
     id: "guru-ganti",
@@ -30,7 +30,7 @@ export const APPS: AppItem[] = [
     category: "Pengurusan",
     roles: ["pentadbir", "admin"],
     icon: "🔁",
-    color: "bg-green-50 border-green-200 hover:border-green-400",
+    iconBg: "bg-emerald-50 text-emerald-600",
   },
   {
     id: "ai",
@@ -40,7 +40,7 @@ export const APPS: AppItem[] = [
     category: "AI & PdP",
     roles: ["guru", "pentadbir"],
     icon: "🤖",
-    color: "bg-purple-50 border-purple-200 hover:border-purple-400",
+    iconBg: "bg-purple-50 text-purple-600",
   },
   {
     id: "bq",
@@ -50,7 +50,7 @@ export const APPS: AppItem[] = [
     category: "Kewangan",
     roles: ["pentadbir", "admin"],
     icon: "📊",
-    color: "bg-amber-50 border-amber-200 hover:border-amber-400",
+    iconBg: "bg-amber-50 text-amber-600",
   },
 ];
 

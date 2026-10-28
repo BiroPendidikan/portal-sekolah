@@ -11,7 +11,6 @@ export default function HomePage() {
   const [currentYear, setCurrentYear] = useState<number | null>(null);
   const { favs, toggle } = useFavourites();
 
-  // useEffect hanya berjalan di browser, bukan semasa prerender di server
   useEffect(() => {
     setCurrentYear(new Date().getFullYear());
   }, []);
@@ -29,58 +28,104 @@ export default function HomePage() {
   }, [query, category]);
 
   return (
-    <main className="mx-auto max-w-6xl px-4 py-8">
-      <header className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">Portal Sekolah</h1>
-        <p className="text-gray-600">Satu tempat untuk semua aplikasi sekolah.</p>
+    <div className="min-h-screen bg-slate-50">
+      {/* Navbar Korporat */}
+      <header className="sticky top-0 z-10 border-b border-slate-200 bg-white/80 backdrop-blur-md">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
+          <div className="flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600 text-white">
+              <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+              </svg>
+            </div>
+            <span className="text-xl font-bold tracking-tight text-slate-900">
+              Portal Sekolah
+            </span>
+          </div>
+          <div className="hidden text-sm font-medium text-slate-500 sm:block">
+            Sistem Dalaman
+          </div>
+        </div>
       </header>
 
-      <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center">
-        <input
-          type="text"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder="Cari aplikasi…"
-          className="flex-1 rounded-lg border border-gray-300 px-4 py-2 focus:border-blue-500 focus:outline-none"
-        />
-        <div className="flex flex-wrap gap-2">
-          {CATEGORIES.map((c) => (
-            <button
-              key={c}
-              onClick={() => setCategory(c)}
-              className={`rounded-lg px-3 py-2 text-sm font-medium transition ${
-                category === c
-                  ? "bg-gray-900 text-white"
-                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-              }`}
-            >
-              {c}
-            </button>
+      <main className="mx-auto max-w-6xl px-4 py-10">
+        {/* Hero Section */}
+        <div className="mb-10 text-center sm:text-left">
+          <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+            Hab Aplikasi Sekolah
+          </h1>
+          <p className="mt-2 text-base text-slate-500">
+            Akses semua sistem pengurusan dan alat bantu PdP anda di satu tempat.
+          </p>
+        </div>
+
+        {/* Bar Carian & Penapis */}
+        <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          
+          {/* Input Carian */}
+          <div className="relative w-full max-w-md">
+            <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+              <svg className="h-5 w-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </div>
+            <input
+              type="text"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Cari aplikasi..."
+              className="w-full rounded-xl border border-slate-200 bg-white py-2.5 pl-10 pr-4 text-sm text-slate-900 shadow-sm outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+            />
+          </div>
+
+          {/* Penapis Kategori */}
+          <div className="flex flex-wrap gap-2">
+            {CATEGORIES.map((c) => (
+              <button
+                key={c}
+                onClick={() => setCategory(c)}
+                className={`rounded-full px-4 py-2 text-sm font-medium transition-all ${
+                  category === c
+                    ? "bg-slate-900 text-white shadow-md"
+                    : "bg-white text-slate-600 border border-slate-200 hover:bg-slate-100"
+                }`}
+              >
+                {c}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Grid Aplikasi */}
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {filtered.map((a) => (
+            <AppCard
+              key={a.id}
+              app={a}
+              isFav={favs.includes(a.id)}
+              onToggleFav={toggle}
+            />
           ))}
         </div>
-      </div>
 
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {filtered.map((a) => (
-          <AppCard
-            key={a.id}
-            app={a}
-            isFav={favs.includes(a.id)}
-            onToggleFav={toggle}
-          />
-        ))}
-      </div>
+        {/* Paparan Tiada Hasil */}
+        {filtered.length === 0 && (
+          <div className="mt-12 rounded-2xl border border-dashed border-slate-300 bg-white p-12 text-center">
+            <p className="text-slate-500">Tiada aplikasi sepadan dengan carian anda.</p>
+            <button 
+              onClick={() => { setQuery(""); setCategory("Semua"); }}
+              className="mt-4 text-sm font-medium text-blue-600 hover:underline"
+            >
+              Kosongkan carian
+            </button>
+          </div>
+        )}
 
-      {filtered.length === 0 && (
-        <p className="mt-8 text-center text-gray-500">
-          Tiada aplikasi sepadan dengan carian.
-        </p>
-      )}
-
-      <footer className="mt-12 text-center text-sm text-gray-400">
-        {/* Paparkan tahun hanya jika sudah sedia, elak ralat hydration */}
-        {currentYear !== null && `© ${currentYear} `}Portal Sekolah · Dibina untuk kegunaan dalaman
-      </footer>
-    </main>
+        {/* Footer */}
+        <footer className="mt-16 border-t border-slate-200 pt-8 text-center text-sm text-slate-400">
+          {currentYear !== null && `© ${currentYear} `}Portal Sekolah · Dibina untuk kegunaan dalaman
+        </footer>
+      </main>
+    </div>
   );
 }
