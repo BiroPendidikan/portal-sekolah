@@ -8,7 +8,7 @@ export type AppItem = {
   category: string;
   roles: Role[];
   icon: string;
-  iconBg: string; // Ubah dari 'color' ke 'iconBg'
+  iconBg: string;
 };
 
 export const APPS: AppItem[] = [
@@ -51,6 +51,17 @@ export const APPS: AppItem[] = [
     roles: ["pentadbir", "admin"],
     icon: "📊",
     iconBg: "bg-amber-50 text-amber-600",
+  },
+  // 👇 APLIKASI BAHARU DITAMBAH DI SINI 👇
+  {
+    id: "tugasan-sekolah",
+    name: "Sistem Tugasan Sekolah",
+    description: "Pengurusan dan penyerahan tugasan murid secara dalam talian.",
+    url: "https://tugasan-sekolah.juliansimonpeter.workers.dev/",
+    category: "PdP",
+    roles: ["guru", "pentadbir"],
+    icon: "📝",
+    iconBg: "bg-rose-50 text-rose-600",
   },
 ];
 
