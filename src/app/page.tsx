@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState, useEffect } from "react";
+import Image from "next/image"; // 👈 IMPORT IMAGE DITAMBAH
 import { APPS, CATEGORIES } from "@/lib/apps";
 import { AppCard } from "@/components/AppCard";
 import { useFavourites } from "@/hooks/useFavourites";
@@ -29,19 +30,33 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-slate-50">
-      {/* Navbar Korporat */}
+      {/* Navbar Korporat dengan Logo */}
       <header className="sticky top-0 z-10 border-b border-slate-200 bg-white/80 backdrop-blur-md">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600 text-white">
-              <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-              </svg>
+            
+            {/* Logo Sekolah */}
+            <div className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-lg border border-slate-100 bg-white p-1 shadow-sm">
+              <Image
+                src="/logo-sk.png"
+                alt="Logo SK R.C. Kubong Limbang"
+                width={48}
+                height={48}
+                className="object-contain"
+              />
             </div>
-            <span className="text-xl font-bold tracking-tight text-slate-900">
-              Portal Sekolah
-            </span>
+
+            {/* Teks Nama Sekolah */}
+            <div className="flex flex-col">
+              <span className="text-lg font-bold leading-tight tracking-tight text-slate-900">
+                SK R.C. Kubong Limbang
+              </span>
+              <span className="text-xs font-medium text-slate-500">
+                Portal Aplikasi Sekolah
+              </span>
+            </div>
           </div>
+
           <div className="hidden text-sm font-medium text-slate-500 sm:block">
             Sistem Dalaman
           </div>
@@ -123,7 +138,7 @@ export default function HomePage() {
 
         {/* Footer */}
         <footer className="mt-16 border-t border-slate-200 pt-8 text-center text-sm text-slate-400">
-          {currentYear !== null && `© ${currentYear} `}Portal Sekolah · Dibina untuk kegunaan dalaman
+          {currentYear !== null && `© ${currentYear} `}SK R.C. Kubong Limbang · Dibina untuk kegunaan dalaman
         </footer>
       </main>
     </div>
