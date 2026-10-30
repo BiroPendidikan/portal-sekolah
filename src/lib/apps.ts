@@ -62,12 +62,12 @@ export const APPS: AppItem[] = [
     icon: "📝",
     iconBg: "bg-rose-50 text-rose-600",
   },
-  // 👇 APLIKASI BAHARU DITAMBAH DI SINI 👇
   {
     id: "opr-skrc",
     name: "One Page Report (OPR)",
     description: "Sistem pelaporan ringkas One Page Report untuk SK R.C. Kubong Limbang.",
-    url: "https://sites.google.com/moe-dl.edu.my/oprskrck/home",
+    // 👇 URL TELAH DIKEMAS KINI DI SINI 👇
+    url: "https://belajar.interactivelink.site/OPRSKRCK",
     category: "Pengurusan",
     roles: ["guru", "pentadbir", "admin"],
     icon: "📑",
