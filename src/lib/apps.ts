@@ -52,7 +52,6 @@ export const APPS: AppItem[] = [
     icon: "📊",
     iconBg: "bg-amber-50 text-amber-600",
   },
-  // 👇 APLIKASI BAHARU DITAMBAH DI SINI 👇
   {
     id: "tugasan-sekolah",
     name: "Sistem Tugasan Sekolah",
@@ -62,6 +61,17 @@ export const APPS: AppItem[] = [
     roles: ["guru", "pentadbir"],
     icon: "📝",
     iconBg: "bg-rose-50 text-rose-600",
+  },
+  // 👇 APLIKASI BAHARU DITAMBAH DI SINI 👇
+  {
+    id: "opr-sk",
+    name: "Operasi Sekolah (OPR)",
+    description: "Portal maklumat rasmi dan pusat operasi SK R.C. Kubong.",
+    url: "https://sites.google.com/moe-dl.edu.my/oprskrck/home",
+    category: "Pengurusan",
+    roles: ["guru", "pentadbir", "admin"],
+    icon: "🏢",
+    iconBg: "bg-indigo-50 text-indigo-600",
   },
 ];
 
