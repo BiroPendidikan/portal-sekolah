@@ -64,13 +64,13 @@ export const APPS: AppItem[] = [
   },
   // 👇 APLIKASI BAHARU DITAMBAH DI SINI 👇
   {
-    id: "opr-sk",
-    name: "Operasi Sekolah (OPR)",
-    description: "Portal maklumat rasmi dan pusat operasi SK R.C. Kubong.",
+    id: "opr-skrc",
+    name: "One Page Report (OPR)",
+    description: "Sistem pelaporan ringkas One Page Report untuk SK R.C. Kubong Limbang.",
     url: "https://sites.google.com/moe-dl.edu.my/oprskrck/home",
     category: "Pengurusan",
     roles: ["guru", "pentadbir", "admin"],
-    icon: "🏢",
+    icon: "📑",
     iconBg: "bg-indigo-50 text-indigo-600",
   },
 ];
