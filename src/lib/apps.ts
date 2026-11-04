@@ -66,12 +66,22 @@ export const APPS: AppItem[] = [
     id: "opr-skrc",
     name: "One Page Report (OPR)",
     description: "Sistem pelaporan ringkas One Page Report untuk SK R.C. Kubong Limbang.",
-    // 👇 URL TELAH DIKEMAS KINI DI SINI 👇
     url: "https://belajar.interactivelink.site/OPRSKRCK",
     category: "Pengurusan",
     roles: ["guru", "pentadbir", "admin"],
     icon: "📑",
     iconBg: "bg-indigo-50 text-indigo-600",
+  },
+  // 👇 APLIKASI BAHARU DITAMBAH DI SINI 👇
+  {
+    id: "aplikasi-pengurusan-tugasan",
+    name: "Aplikasi Pengurusan Tugasan",
+    description: "Platform khusus untuk pengurusan tugasan dan kerja.",
+    url: "https://aplikasi-pengurusan-tugasan.vercel.app/",
+    category: "Pengurusan",
+    roles: ["guru", "pentadbir"],
+    icon: "📋",
+    iconBg: "bg-teal-50 text-teal-600",
   },
 ];
 
