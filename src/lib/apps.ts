@@ -83,6 +83,16 @@ export const APPS: AppItem[] = [
     icon: "📋",
     iconBg: "bg-teal-50 text-teal-600",
   },
+  {
+    id: "aplikasi-apps-script",
+    name: "Aplikasi Sistem Pemantauan 3K",
+    description: "Pautan sistem berasaskan Google Apps Script.",
+    url: "https://script.google.com/a/macros/moe-dl.edu.my/s/AKfycbxpXV0-dgUmi0DiFkXQ4nh5bY8TbKP2-GTCiKmzNQs/dev",
+    category: "Pengurusan",
+    roles: ["guru", "pentadbir", "admin"],
+    icon: "⚙️",
+    iconBg: "bg-cyan-50 text-cyan-600",
+  },
 ];
 
 export const CATEGORIES = ["Semua", ...new Set(APPS.map((a) => a.category))];
