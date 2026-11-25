@@ -72,7 +72,6 @@ export const APPS: AppItem[] = [
     icon: "📑",
     iconBg: "bg-indigo-50 text-indigo-600",
   },
-  // 👇 APLIKASI BAHARU DITAMBAH DI SINI 👇
   {
     id: "aplikasi-pengurusan-tugasan",
     name: "Aplikasi Pengurusan Tugasan",
@@ -94,14 +93,15 @@ export const APPS: AppItem[] = [
     iconBg: "bg-cyan-50 text-cyan-600",
   },
   {
-  id: "rmt-pemantauan",
-  name: "Pemantauan & Dashboard RMT",
-  description: "Borang laporan harian guru bertugas, analisis kehadiran & penjanaan PDF tuntutan bulanan RMT.",
-  category: "HEM", // atau kategori yang sepadan dalam portal anda
-  icon: "🍱",
-  url: "https://script.google.com/a/macros/moe-dl.edu.my/s/AKfycby-KYrpHAM5UcyUXia9Oiz1o6Yxr8oVKYNJj28pHYRn28IKxRd6z7cI8i56D59k-Xr-/exec",
-  badge: "Baharu"
-}
+    id: "rmt-pemantauan",
+    name: "Pemantauan & Dashboard RMT",
+    description: "Borang laporan harian guru bertugas, analisis kehadiran & penjanaan PDF tuntutan bulanan RMT.",
+    url: "https://script.google.com/a/macros/moe-dl.edu.my/s/AKfycby-KYrpHAM5UcyUXia9Oiz1o6Yxr8oVKYNJj28pHYRn28IKxRd6z7cI8i56D59k-Xr-/exec",
+    category: "HEM",
+    roles: ["guru", "pentadbir", "admin"],
+    icon: "🍱",
+    iconBg: "bg-orange-50 text-orange-600",
+  },
 ];
 
 export const CATEGORIES = ["Semua", ...new Set(APPS.map((a) => a.category))];
