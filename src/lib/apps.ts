@@ -93,6 +93,15 @@ export const APPS: AppItem[] = [
     icon: "⚙️",
     iconBg: "bg-cyan-50 text-cyan-600",
   },
+  {
+  id: "rmt-pemantauan",
+  name: "Pemantauan & Dashboard RMT",
+  description: "Borang laporan harian guru bertugas, analisis kehadiran & penjanaan PDF tuntutan bulanan RMT.",
+  category: "HEM", // atau kategori yang sepadan dalam portal anda
+  icon: "🍱",
+  url: "https://script.google.com/a/macros/moe-dl.edu.my/s/AKfycby-KYrpHAM5UcyUXia9Oiz1o6Yxr8oVKYNJj28pHYRn28IKxRd6z7cI8i56D59k-Xr-/exec",
+  badge: "Baharu"
+}
 ];
 
 export const CATEGORIES = ["Semua", ...new Set(APPS.map((a) => a.category))];
